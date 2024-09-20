@@ -8,6 +8,7 @@ jobs:
   publish-to-pypi:
     name: Build and release
     runs-on: windows-latest
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
@@ -17,7 +18,7 @@ jobs:
 
     - name: Run generate.bat
       run: >-
-        generate.bat
+        call generate.bat
 
     - name: Build
       run: >-
