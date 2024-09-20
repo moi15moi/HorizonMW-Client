@@ -1,0 +1,32 @@
+name: Build and release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-to-pypi:
+    name: Build and release
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v2
+
+    - name: Run generate.bat
+      run: >-
+        generate.bat
+
+    - name: Build
+      run: >-
+        msbuild build/h1-mod.sln /p:Configuration=Release
+
+    - name: Upload Build Artifacts (optional)
+      if: success()
+      uses: actions/upload-artifact@v4
+      with:
+        name: h1-mod-build
+        path: |
+          build/Release/
