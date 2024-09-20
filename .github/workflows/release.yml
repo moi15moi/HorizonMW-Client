@@ -19,7 +19,7 @@ jobs:
     - name: Run generate.bat
       run: |
         dir
-        \.generate.bat
+        generate.bat
 
     - name: Build
       run: |
