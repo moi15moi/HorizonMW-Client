@@ -17,12 +17,12 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Run generate.bat
-      run: >-
+      run: |
         dir
         \.generate.bat
 
     - name: Build
-      run: >-
+      run: |
         msbuild build/h1-mod.sln /p:Configuration=Release
 
     - name: Upload Build Artifacts (optional)
