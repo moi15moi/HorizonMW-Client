@@ -18,6 +18,7 @@ jobs:
 
     - name: Run generate.bat
       run: >-
+        dir
         \.generate.bat
 
     - name: Build
