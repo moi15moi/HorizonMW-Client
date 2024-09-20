@@ -21,7 +21,7 @@ jobs:
       shell: cmd
 
     - name: Build
-      run: msbuild build\h2m-mod.sln /p:Configuration=Release /p:TreatWarningsAsErrors=false
+      run: msbuild build\h2m-mod.sln /p:Configuration=Release /wx-
       
     - name: Upload Build Artifacts (optional)
       if: success()
