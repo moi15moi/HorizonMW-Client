@@ -22,7 +22,7 @@ jobs:
 
     - name: Build
       run: |
-        msbuild build/h1-mod.sln /p:Configuration=Release
+        msbuild build/h2m-mod.sln /p:Configuration=Release
 
     - name: Upload Build Artifacts (optional)
       if: success()
