@@ -17,16 +17,14 @@ jobs:
       uses: microsoft/setup-msbuild@v2
 
     - name: Run generate.bat
-      run:  generate.bat
-      shell: cmd
+      run: .\generate.bat
 
     - name: Build
       run: msbuild build\h2m-mod.sln /p:Configuration=Release /p:Platform=x64
-      
-    - name: Upload Build Artifacts (optional)
-      if: success()
+
+    - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: h1-mod-build
-        path: |
-          build/Release/
+        name: h2m-mod-build
+        if-no-files-found: error
+        path: build\bin\x64\Release\
